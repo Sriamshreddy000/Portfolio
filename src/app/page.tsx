@@ -74,12 +74,6 @@ export default function Page() {
             >
               Email me
             </a>
-            <a
-              className="rounded-2xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
-              href="#projects"
-            >
-              View projects
-            </a>
           </div>
         </motion.div>
 
