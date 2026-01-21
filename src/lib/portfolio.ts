@@ -1,6 +1,5 @@
 export const profile = {
   name: "Sriamsh Reddy Enugu",
-  location: "Everett, WA",
   email: "enugusriamshreddy@gmail.com",
   phone: "513-601-7380",
   links: {
@@ -15,7 +14,6 @@ export const profile = {
 export const highlights = [
   { k: "125k+", v: "users served" },
   { k: "100k+ LOC", v: "MERN codebase" },
-  { k: "20+", v: "PRs reviewed weekly" },
   { k: "3.8/4.0", v: "GPA" },
 ];
 

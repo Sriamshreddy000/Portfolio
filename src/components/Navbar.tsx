@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
+    { label: "About Me", href: "/about" },
 ];
 
 export default function Navbar() {

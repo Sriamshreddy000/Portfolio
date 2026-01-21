@@ -33,20 +33,12 @@ export default function Page() {
     <main className="mx-auto max-w-6xl px-5 py-10 md:py-16">
       {/* Top bar */}
       <motion.header {...fadeUp} className="flex items-center justify-between gap-4">
-        <div className="text-sm text-white/75">{profile.location}</div>
         <div className="flex items-center gap-3 text-sm">
-          <a className="text-white/80 hover:text-white" href={profile.links.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <span className="text-white/30">•</span>
-          <a className="text-white/80 hover:text-white" href={profile.links.github} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
         </div>
       </motion.header>
 
       {/* Hero */}
-      <section className="mt-10 grid gap-6 md:grid-cols-2 md:items-center">
+      <section className="mt-1 grid gap-6 md:grid-cols-2 md:items-center">
         <motion.div {...fadeUp}>
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75">
             <span className="h-2 w-2 rounded-full bg-white/80" />
@@ -67,14 +59,6 @@ export default function Page() {
             <Pill>Cross-stack Debugging</Pill>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black hover:opacity-90"
-              href={`mailto:${profile.email}`}
-            >
-              Email me
-            </a>
-          </div>
         </motion.div>
 
         <motion.div {...fadeUp} className="md:justify-self-end">
