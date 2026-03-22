@@ -6,12 +6,9 @@ import { Mail, Linkedin, Github } from "lucide-react";
 export default function AboutPage() {
   return (
     <main className="relative px-5 py-14">
-      {/* Background */}
       <div className="absolute inset-0 -z-10 projects-bg" />
 
       <div className="mx-auto max-w-4xl">
-
-        {/* About Me */}
         <motion.section
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +23,6 @@ export default function AboutPage() {
           </p>
         </motion.section>
 
-        {/* How I Work */}
         <motion.section
           className="mt-12"
           initial={{ opacity: 0, y: 16 }}
@@ -43,7 +39,6 @@ export default function AboutPage() {
           </p>
         </motion.section>
 
-        {/* Connect With Me */}
         <motion.section
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 16 }}
@@ -86,7 +81,6 @@ export default function AboutPage() {
             </a>
           </div>
         </motion.section>
-
       </div>
     </main>
   );

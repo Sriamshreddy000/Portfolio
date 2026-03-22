@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, easeOut } from "framer-motion";
+import { projects } from "@/lib/portfolio";
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -17,151 +18,187 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
+function MarketplaceVisual() {
+  return (
+    <div className="project-visual-shell">
+      <motion.div
+        className="project-window"
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="project-window-bar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="project-chat-stack">
+          <motion.div
+            className="project-chat-bubble bubble-left"
+            animate={{ x: [0, 6, 0] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="project-chat-bubble bubble-right"
+            animate={{ x: [0, -8, 0] }}
+            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.35 }}
+          />
+          <div className="project-payment-row">
+            <span className="project-status-dot" />
+            <motion.div
+              className="project-payment-bar"
+              animate={{ scaleX: [0.55, 1, 0.72] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function CloudVisual() {
+  return (
+    <div className="project-visual-shell">
+      <motion.div
+        className="infra-grid"
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="infra-node">API</div>
+        <div className="infra-node">Auth</div>
+        <div className="infra-node">CI/CD</div>
+        <div className="infra-node">AWS</div>
+        <motion.div
+          className="infra-pulse"
+          animate={{ opacity: [0.28, 0.8, 0.28], scale: [0.96, 1.04, 0.96] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </motion.div>
+    </div>
+  );
+}
+
+function SentimentVisual() {
+  return (
+    <div className="project-visual-shell">
+      <motion.div
+        className="terminal-panel"
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="project-window-bar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="terminal-line terminal-prompt">$ analyze topics --stance</div>
+        <div className="terminal-line">entity: product launch</div>
+        <div className="terminal-line">sentiment: positive</div>
+        <div className="terminal-line">stance: mixed</div>
+        <div className="signal-bars">
+          <motion.span
+            animate={{ height: [26, 40, 30] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.span
+            animate={{ height: [34, 22, 42] }}
+            transition={{ duration: 2.9, repeat: Infinity, ease: "easeInOut", delay: 0.15 }}
+          />
+          <motion.span
+            animate={{ height: [18, 36, 28] }}
+            transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+const projectMeta = {
+  "Retro Arcade Game Marketplace": {
+    themeClass: "project-scene-retro",
+    kicker: "Marketplace Systems",
+    Visual: MarketplaceVisual,
+  },
+  "Cloud-Native Course Management System": {
+    themeClass: "project-scene-cloud",
+    kicker: "Cloud Delivery",
+    Visual: CloudVisual,
+  },
+  "Public Sentiment Analyzer": {
+    themeClass: "project-scene-sentiment",
+    kicker: "Applied NLP",
+    Visual: SentimentVisual,
+  },
+} as const;
+
 export default function ProjectsPage() {
   return (
     <main className="relative px-5 py-14">
-  <div className="absolute inset-0 -z-10 projects-bg" />
-  <div className="mx-auto max-w-5xl">
-      {/* Header */}
-      <motion.section {...fadeUp}>
-        <h1 className="text-4xl font-semibold tracking-tight">Projects</h1>
-        <p className="mt-3 max-w-2xl text-white/70">
-          A selection of projects where I focused on real engineering problems,
-          trade-offs, and production-ready decisions. Some codebases are private
-          or still under active development.
-        </p>
-      </motion.section>
+      <div className="absolute inset-0 -z-10 projects-bg" />
+      <div className="mx-auto max-w-5xl">
+        <motion.section {...fadeUp}>
+          <h1 className="text-4xl font-semibold tracking-tight">Projects</h1>
+          <p className="mt-3 max-w-2xl text-white/70">
+            Real project work spanning full-stack systems, cloud infrastructure,
+            and applied NLP workflows.
+          </p>
+        </motion.section>
 
-      {/* Project: Retro Arcade Marketplace */}
-      <motion.section {...fadeUp} className="mt-12 rounded-3xl glass p-8 section-glow">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold">
-              Retro Arcade Game Marketplace
-            </h2>
-            <p className="mt-2 max-w-xl text-white/70">
-              A full-stack marketplace enabling users to buy and sell retro arcade
-              games with real-time chat and a robust payment workflow.
-            </p>
-          </div>
-        </div>
+        <section className="mt-10 space-y-8">
+          {projects.map((project) => {
+            const meta = projectMeta[project.name as keyof typeof projectMeta];
+            const Visual = meta.Visual;
 
-        {/* Tech stack */}
-        <div className="mt-5 flex flex-wrap gap-2">
-          <Pill>Spring Boot</Pill>
-          <Pill>React</Pill>
-          <Pill>WebSockets</Pill>
-          <Pill>PostgreSQL</Pill>
-          <Pill>PayPal Integration</Pill>
-        </div>
+            return (
+              <motion.article
+                key={project.name}
+                {...fadeUp}
+                className={`project-scene ${meta.themeClass} rounded-[2rem] px-6 py-8 md:px-8 md:py-10`}
+              >
+                <div>
+                  <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-3xl">
+                      <p className="section-kicker">{meta.kicker}</p>
+                      <div className="mt-4 flex items-baseline justify-between gap-3">
+                        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+                          {project.name}
+                        </h2>
+                        {project.date ? (
+                          <span className="text-xs text-white/60">{project.date}</span>
+                        ) : null}
+                      </div>
 
-        {/* Case study sections */}
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
-          <div>
-            <h3 className="text-lg font-semibold">Problem</h3>
-            <p className="mt-2 text-sm text-white/70">
-              Building a peer-to-peer marketplace introduced challenges around
-              real-time communication, payment reliability, and ensuring users
-              could not exploit race conditions or duplicate transactions.
-            </p>
-          </div>
+                      <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72 md:text-base">
+                        {project.description}
+                      </p>
+                    </div>
 
-          <div>
-            <h3 className="text-lg font-semibold">Constraints</h3>
-            <p className="mt-2 text-sm text-white/70">
-              The system needed to handle intermittent network failures,
-              asynchronous payment callbacks, and concurrent buyers while
-              maintaining data consistency.
-            </p>
-          </div>
+                    <div className="project-visual-inline">
+                      <Visual />
+                    </div>
+                  </div>
 
-          <div>
-            <h3 className="text-lg font-semibold">Key Engineering Decisions</h3>
-            <ul className="mt-2 space-y-2 text-sm text-white/70">
-              <li>• Implemented WebSocket-based chat with message persistence</li>
-              <li>• Designed idempotent payment workflows to prevent duplicates</li>
-              <li>• Used backend validation to enforce transaction ownership</li>
-            </ul>
-          </div>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <Pill key={tag}>{tag}</Pill>
+                    ))}
+                  </div>
 
-          <div>
-            <h3 className="text-lg font-semibold">Outcome</h3>
-            <p className="mt-2 text-sm text-white/70">
-              The system reliably supports real-time buyer–seller interaction and
-              safely processes payments without double-charging or state
-              corruption, even under retry scenarios.
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
-
-{/* Project: Cloud-Native Course Management System */}
-<motion.section {...fadeUp} className="mt-12 rounded-3xl glass p-8 section-glow">
-  <div>
-    <h2 className="text-2xl font-semibold">
-      Cloud-Native Course Management System
-    </h2>
-    <p className="mt-2 max-w-xl text-white/70">
-      A scalable backend system for managing courses, enrollments, and users,
-      designed with cloud infrastructure automation and CI/CD from the ground up.
-    </p>
-    <div className="mt-4 text-sm text-white/60">
-      Role: Backend & Cloud Engineer · Infrastructure ownership
-    </div>
-  </div>
-
-  {/* Tech stack */}
-  <div className="mt-5 flex flex-wrap gap-2">
-    <Pill>Node.js</Pill>
-    <Pill>Express</Pill>
-    <Pill>AWS</Pill>
-    <Pill>Pulumi</Pill>
-    <Pill>GitHub Actions</Pill>
-    <Pill>REST APIs</Pill>
-  </div>
-
-  {/* Case study sections */}
-  <div className="mt-8 grid gap-8 md:grid-cols-2">
-    <div>
-      <h3 className="text-lg font-semibold">Problem</h3>
-      <p className="mt-2 text-sm text-white/70">
-        Traditional course management systems often couple application logic
-        tightly with infrastructure, making scaling, deployments, and access
-        control difficult to reason about and automate.
-      </p>
-    </div>
-
-    <div>
-      <h3 className="text-lg font-semibold">Constraints</h3>
-      <p className="mt-2 text-sm text-white/70">
-        The system needed to support authenticated access, environment-specific
-        deployments, and repeatable infrastructure provisioning without manual
-        configuration or drift.
-      </p>
-    </div>
-
-    <div>
-      <h3 className="text-lg font-semibold">Key Engineering Decisions</h3>
-      <ul className="mt-2 space-y-2 text-sm text-white/70">
-        <li>• Designed RESTful APIs using Node.js and Express</li>
-        <li>• Provisioned AWS infrastructure using Pulumi (IaC)</li>
-        <li>• Automated build and deployment pipelines with GitHub Actions</li>
-        <li>• Enforced separation of application logic and infrastructure</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 className="text-lg font-semibold">Outcome</h3>
-      <p className="mt-2 text-sm text-white/70">
-        The system can be reliably deployed across environments with consistent
-        infrastructure, enabling faster iteration, safer deployments, and
-        improved operational clarity.
-      </p>
-    </div>
-  </div>
-</motion.section>
-    </div>
+                  <ul className="mt-6 grid gap-3 text-sm text-white/75 md:max-w-3xl">
+                    {project.bullets.map((bullet, index) => (
+                      <li key={index} className="flex gap-2">
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-white/70" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.article>
+            );
+          })}
+        </section>
+      </div>
     </main>
   );
 }
