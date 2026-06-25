@@ -394,6 +394,77 @@ body {
   --project-bottom: rgba(10, 11, 16, 0.92);
 }
 
+.project-date {
+  color: color-mix(in srgb, var(--project-accent) 78%, white);
+}
+
+.exp-date {
+  color: #8fccff;
+}
+
+.project-github-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0a0b0f;
+  background: var(--project-accent);
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--project-accent) 28%, transparent);
+  transition: transform 0.25s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.project-github-btn svg {
+  position: relative;
+  z-index: 1;
+  height: 1.05rem;
+  width: 1.05rem;
+  fill: currentColor;
+}
+
+.project-github-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* moving sheen that sweeps across on hover */
+.project-github-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.project-github-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.08);
+  box-shadow:
+    0 10px 32px color-mix(in srgb, var(--project-accent) 45%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--project-accent) 30%, transparent);
+}
+
+.project-github-btn:hover::before {
+  transform: translateX(120%);
+}
+
+.project-github-btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
 .project-visual-shell {
   width: min(100%, 12rem);
   min-height: 7.5rem;

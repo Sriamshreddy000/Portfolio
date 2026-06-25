@@ -23,7 +23,7 @@ export const experience = [
   {
     company: "One Community Inc.",
     role: "Software Engineer Intern",
-    date: "Nov 2025 — Present",
+    date: "Oct 2025 — Mar 2026",
     summary:
       "Contributing to production features in a 100k+ LOC MERN codebase serving 125k+ users, with emphasis on authorization, observability, and cross-stack debugging.",
     bullets: [
@@ -53,6 +53,7 @@ export const projects = [
   {
     name: "Retro Arcade Game Marketplace",
     date: "Dec 2024 — Mar 2025",
+    github: "https://github.com/Sriamshreddy000/Retro-arcade-game-marketplace",
     description:
       "A full-stack marketplace built around real-time buyer-seller communication, payment handling, and safer transaction state management.",
     tags: ["Spring Boot", "React", "WebSockets", "PostgreSQL", "PayPal", "CI/CD"],
@@ -65,6 +66,7 @@ export const projects = [
   {
     name: "Cloud-Native Course Management System",
     date: "Nov 2024 — Dec 2024",
+    github: "https://github.com/Sriamshreddy000/Webapp",
     description:
       "A cloud-oriented course platform centered on authenticated REST services, infrastructure automation, and repeatable deployment workflows.",
     tags: ["Node.js", "Express", "Pulumi", "AWS", "GitHub Actions", "CloudWatch"],
@@ -76,7 +78,8 @@ export const projects = [
   },
   {
     name: "Public Sentiment Analyzer",
-    date: "",
+    date: "Mar 2026 — May 2026",
+    github: "https://github.com/Sriamshreddy000/public-sentiment-analyzer",
     description:
       "A Python CLI workflow for public-topic analysis using transformer-based sentiment and stance classification, entity extraction, and interpretable text processing.",
     tags: ["Python", "HuggingFace", "PyTorch", "spaCy", "TF-IDF", "CLI"],

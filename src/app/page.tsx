@@ -99,7 +99,7 @@ export default function Page() {
                       <div className="text-lg font-semibold">{x.role}</div>
                       <div className="text-sm text-white/70">{x.company}</div>
                     </div>
-                    <div className="text-sm text-white/60">{x.date}</div>
+                    <div className="exp-date whitespace-nowrap text-sm">{x.date}</div>
                   </div>
                   <p className="mt-4 max-w-3xl text-sm leading-7 text-white/74 md:text-[15px]">
                     {x.summary}
