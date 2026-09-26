@@ -27,12 +27,12 @@ export const experience = [
     summary:
       "Contributing to production features in a 100k+ LOC MERN codebase serving 125k+ users, with emphasis on authorization, observability, and cross-stack debugging.",
     bullets: [
-      "Developed production features in a large MERN app with backward-compatibility constraints.",
-      "Designed and implemented RBAC across backend services; prevented unauthorized access paths.",
+      "Developed production features and REST APIs in a large MERN app with backward-compatibility constraints.",
+      "Designed and implemented RBAC across backend services, closing permission gaps and preventing unauthorized access paths.",
       "Traced auth failures across React → Node.js → DB to eliminate intermittent login issues.",
-      "Added structured logging for RBAC/auth flows to improve auditability and debugging speed.",
-      "Reviewed 20+ PRs weekly; caught authorization flaws and state regressions before production.",
-      "Built React auth/profile flows with Redux and defensive UI patterns for failure modes.",
+      "Designed an audit table tracking failed login attempts and new-user inserts, with structured logging across RBAC/auth flows for auditability.",
+      "Raised 15 frontend/backend PRs and reviewed 40+ during a two-week onboarding ramp; caught authorization flaws and state regressions before production.",
+      "Built React/Redux auth and profile flows with input validation, JWT-based session handling, and defensive loading/error states.",
     ],
   },
   {
@@ -40,11 +40,12 @@ export const experience = [
     role: "Software Developer Intern",
     date: "Sep 2023 — Feb 2024",
     summary:
-      "Worked in Python-based analysis workflows focused on EDA, experiment evaluation, and reporting clarity across model results.",
+      "Trained a text-classification model and shipped it as a real-time prediction service, deployed serverlessly on AWS.",
     bullets: [
-      "Performed EDA in Python (Pandas/Matplotlib) to uncover data quality issues.",
-      "Evaluated classification models with accuracy/precision/recall tradeoffs and documented findings.",
-      "Automated experimentation and reporting workflows using Jupyter and GitHub.",
+      "Trained and evaluated a Logistic Regression text-classification model on a 10k-row labeled dataset, reaching 88% accuracy and 0.85 F1 on held-out data.",
+      "Built a FastAPI REST service serving real-time predictions with average latency under 150ms.",
+      "Deployed the API as a serverless function on AWS Lambda behind API Gateway; stored artifacts and versioned datasets in S3 with least-privilege IAM roles.",
+      "Added CloudWatch logging/monitoring and a lightweight React frontend for submitting input and viewing live predictions.",
     ],
   },
 ];
@@ -92,15 +93,16 @@ export const projects = [
 ];
 
 export const skills = {
-  languages: ["Java", "Python", "JavaScript", "C++"],
-  frontend: ["React", "HTML", "CSS", "REST API Integration"],
-  backend: ["Node.js", "Express", "Authentication", "Spring Boot", "REST APIs"],
-  databases: ["PostgreSQL", "MongoDB", "MySQL"],
-  cloudDevOps: ["AWS (EC2, S3, RDS, IAM, CloudWatch)", "Docker", "GitHub Actions", "Pulumi"],
+  languages: ["Java", "Python", "JavaScript", "TypeScript", "C++"],
+  frontend: ["React", "Redux", "TypeScript", "HTML", "CSS", "REST API Integration"],
+  backend: ["Node.js", "Express", "FastAPI", "Authentication (JWT)", "Spring Boot", "REST APIs"],
+  databases: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+  cloudDevOps: ["AWS (EC2, S3, RDS, IAM, Lambda, API Gateway, CloudWatch)", "Docker", "GitHub Actions", "Pulumi"],
   mlNlp: [
     "Transformers",
     "HuggingFace",
     "PyTorch",
+    "Logistic Regression",
     "Entity Extraction",
     "Stance Classification",
     "TF-IDF",
@@ -113,5 +115,5 @@ export const education = {
   school: "University of Cincinnati",
   degree: "Master of Engineering in Computer Science",
   date: "Aug 2024 — Apr 2026",
-  gpa: "3.8/4.0",
+  gpa: "3.79/4.0",
 };
