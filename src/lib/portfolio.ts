@@ -6,9 +6,9 @@ export const profile = {
     github: "https://github.com/sriamshreddy000",
     linkedin: "https://www.linkedin.com/in/sriamshreddy-enugu",
   },
-  headline: "Software Engineer building production web systems with a strong ML/NLP secondary lane.",
+  headline: "Software engineer building production backends and data-backed services across Python, Node.js, React, and AWS.",
   subheadline:
-    "I work across full-stack product delivery, backend systems, cloud infrastructure, and applied ML workflows, with recent experience in RBAC, authentication, observability, and cross-stack debugging.",
+    "I've shipped features in a 100k-line codebase serving 125k users, designed role-based access control and audit logging across backend services, and deployed an ML classifier end to end, FastAPI on Lambda, versioned datasets in S3, CloudWatch monitoring. Comfortable tracing a bug from the React component down through the API to the database.",
 };
 
 export const about = {
