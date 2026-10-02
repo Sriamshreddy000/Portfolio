@@ -14,18 +14,18 @@ export const profile = {
 export const about = {
   title: "Grounded engineering across product delivery, backend clarity, and applied ML workflows.",
   paragraphs: [
-    "My strongest work sits where frontend delivery, backend reliability, and cloud-backed systems need to line up cleanly. I like building features that hold up under real usage, especially when authentication, authorization, and operational visibility matter.",
-    "Alongside software engineering, I have a real ML/NLP lane built around Python workflows, transformer-based analysis, entity extraction, TF-IDF, and CLI-driven experimentation. I treat that work as applied systems work, not disconnected research.",
+    "My strongest work is backend and infrastructure: designing role-based access control and audit logging across services in a 100k-line MERN codebase serving 125k users, and tracing authentication failures from the React component through Node.js down to the database until the intermittent ones stop happening. I care about the parts that only show up under real usage, permission gaps, race conditions, retries, and whether you can tell what went wrong afterward.",
+    "I also build Python services around machine learning. At EduSkills I trained a text classifier and shipped it end to end: a FastAPI prediction service under 150ms, deployed to Lambda behind API Gateway, with versioned datasets in S3 under least-privilege IAM and CloudWatch monitoring on requests and errors. Outside work I've built a transformer-based sentiment CLI over Reddit data and provisioned AWS infrastructure with Pulumi and GitHub Actions. I treat ML as systems work, the model is one component in something that has to run reliably.",
   ],
 };
 
 export const experience = [
   {
-    company: "One Community Inc.",
+    company: "One Community Global",
     role: "Software Engineer Intern",
     date: "Oct 2025 — Mar 2026",
     summary:
-      "Contributing to production features in a 100k+ LOC MERN codebase serving 125k+ users, with emphasis on authorization, observability, and cross-stack debugging.",
+      "Contributed to production features in a 100k+ LOC MERN codebase serving 125k+ users, with emphasis on authorization, observability, and cross-stack debugging.",
     bullets: [
       "Developed production features and REST APIs in a large MERN app with backward-compatibility constraints.",
       "Designed and implemented RBAC across backend services, closing permission gaps and preventing unauthorized access paths.",
@@ -93,11 +93,12 @@ export const projects = [
 ];
 
 export const skills = {
-  languages: ["Java", "Python", "JavaScript", "TypeScript", "C++"],
-  frontend: ["React", "Redux", "TypeScript", "HTML", "CSS", "REST API Integration"],
+  languages: ["Java", "Python", "JavaScript", "TypeScript", "C++", "SQL"],
+  frontend: ["React", "Redux", "HTML", "CSS", "REST API Integration"],
   backend: ["Node.js", "Express", "FastAPI", "Authentication (JWT)", "Spring Boot", "REST APIs"],
   databases: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
   cloudDevOps: ["AWS (EC2, S3, RDS, IAM, Lambda, API Gateway, CloudWatch)", "Docker", "GitHub Actions", "Pulumi"],
+  data: ["Pandas", "NumPy", "Matplotlib", "Jupyter", "Data Modeling"],
   mlNlp: [
     "Transformers",
     "HuggingFace",
@@ -106,8 +107,6 @@ export const skills = {
     "Entity Extraction",
     "Stance Classification",
     "TF-IDF",
-    "Pandas",
-    "Matplotlib",
   ],
 };
 

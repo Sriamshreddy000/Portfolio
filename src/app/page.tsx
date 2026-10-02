@@ -46,8 +46,8 @@ export default function Page() {
             <p className="mt-3 max-w-xl text-white/68">{profile.subheadline}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              <Pill>Next.js</Pill>
-              <Pill>React</Pill>
+              <Pill>Python</Pill>
+              <Pill>Node.js</Pill>
               <Pill>Auth & RBAC</Pill>
               <Pill>AWS</Pill>
               <Pill>ML / NLP</Pill>
