@@ -90,6 +90,20 @@ export const projects = [
       "Combined entity extraction and TF-IDF-based text processing to make outputs more interpretable.",
     ],
   },
+    {
+    name: "Insider Threat Detection under Analyst Alert Budget",
+    date: "Sep 2026 — Oct 2026",
+    github: "https://github.com/Sriamshreddy000/intrusion-detection",
+    description:
+      "A rare-event detection pipeline over employee activity logs, built around what an analyst team can actually review rather than a leaderboard score, with an explicit account of how much of the result survives realistic data.",
+    tags: ["Python", "LightGBM", "pandas", "scikit-learn", "Matplotlib"],
+    bullets: [
+      "Leakage-free pipeline turning five raw activity logs into 330K labeled user-days at a 0.3% positive rate, with strictly-prior rolling baselines and a time-based split.",
+      "Threshold chosen against stated analyst review capacity: 18 of 18 insiders surfaced at 2 alerts/day with 86% precision, stable across 5 random seeds.",
+      "Diagnosed standard class weighting as the primary failure mode; removing it moved validation PR-AUC from 0.03 to 0.99.",
+      "Stress-tested the benchmark by injecting realistic variance into benign days, reporting 0.86 to 0.92 PR-AUC as the credible real-world range.",
+    ],
+  },
 ];
 
 export const skills = {

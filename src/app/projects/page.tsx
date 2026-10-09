@@ -114,6 +114,81 @@ function SentimentVisual() {
   );
 }
 
+function ThreatVisual() {
+  const scores = [94, 86, 79, 71, 34, 27, 21, 15];
+  const cutoffAfter = 4;
+
+  return (
+    <div className="project-visual-shell">
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 7,
+          padding: "16px 18px",
+          borderRadius: 18,
+          border: "1px solid rgba(255,255,255,0.10)",
+          background: "rgba(255,255,255,0.04)",
+          minWidth: 190,
+        }}
+      >
+        {scores.map((score, i) => (
+          <div key={i}>
+            <motion.div
+              animate={{ scaleX: [0.92, 1, 0.92] }}
+              transition={{
+                duration: 3 + i * 0.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.12,
+              }}
+              style={{
+                transformOrigin: "left",
+                height: 6,
+                width: `${score}%`,
+                borderRadius: 999,
+                background:
+                  i < cutoffAfter
+                    ? "rgba(248,113,113,0.85)"
+                    : "rgba(255,255,255,0.18)",
+              }}
+            />
+            {i === cutoffAfter - 1 ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  margin: "8px 0 4px",
+                }}
+              >
+                <span
+                  style={{
+                    flex: 1,
+                    borderTop: "1px dashed rgba(255,255,255,0.28)",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: 9,
+                    letterSpacing: "0.08em",
+                    color: "rgba(255,255,255,0.45)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  ALERT BUDGET
+                </span>
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 const projectMeta = {
   "Retro Arcade Game Marketplace": {
     themeClass: "project-scene-retro",
@@ -129,6 +204,11 @@ const projectMeta = {
     themeClass: "project-scene-sentiment",
     kicker: "Applied NLP",
     Visual: SentimentVisual,
+  },
+    "Insider Threat Detection under Analyst Alert Budget": {
+    themeClass: "project-scene-threat",
+    kicker: "Rare-Event ML",
+    Visual: ThreatVisual,
   },
 } as const;
 
