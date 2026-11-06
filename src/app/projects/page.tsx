@@ -12,7 +12,7 @@ const fadeUp = {
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+    <span className="rounded-full border border-fg/10 bg-fg/5 px-3 py-1 text-xs text-fg/80">
       {children}
     </span>
   );
@@ -129,8 +129,8 @@ function ThreatVisual() {
           gap: 7,
           padding: "16px 18px",
           borderRadius: 18,
-          border: "1px solid rgba(255,255,255,0.10)",
-          background: "rgba(255,255,255,0.04)",
+          border: "1px solid rgb(var(--fg) / 0.10)",
+          background: "rgb(var(--fg) / 0.04)",
           minWidth: 190,
         }}
       >
@@ -152,7 +152,7 @@ function ThreatVisual() {
                 background:
                   i < cutoffAfter
                     ? "rgba(248,113,113,0.85)"
-                    : "rgba(255,255,255,0.18)",
+                    : "rgb(var(--fg) / 0.18)",
               }}
             />
             {i === cutoffAfter - 1 ? (
@@ -167,14 +167,14 @@ function ThreatVisual() {
                 <span
                   style={{
                     flex: 1,
-                    borderTop: "1px dashed rgba(255,255,255,0.28)",
+                    borderTop: "1px dashed rgb(var(--fg) / 0.28)",
                   }}
                 />
                 <span
                   style={{
                     fontSize: 9,
                     letterSpacing: "0.08em",
-                    color: "rgba(255,255,255,0.45)",
+                    color: "rgb(var(--fg) / 0.45)",
                     whiteSpace: "nowrap",
                   }}
                 >
@@ -219,7 +219,7 @@ export default function ProjectsPage() {
       <div className="mx-auto max-w-5xl">
         <motion.section {...fadeUp}>
           <h1 className="text-4xl font-semibold tracking-tight">Projects</h1>
-          <p className="mt-3 max-w-2xl text-white/70">
+          <p className="mt-3 max-w-2xl text-fg/70">
             Real project work spanning full-stack systems, cloud infrastructure,
             and applied NLP workflows.
           </p>
@@ -251,7 +251,7 @@ export default function ProjectsPage() {
                         {project.name}
                       </h2>
 
-                      <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72 md:text-base">
+                      <p className="mt-4 max-w-2xl text-sm leading-7 text-fg/72 md:text-base">
                         {project.description}
                       </p>
                     </div>
@@ -267,10 +267,10 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  <ul className="mt-6 grid gap-3 text-sm text-white/75 md:max-w-3xl">
+                  <ul className="mt-6 grid gap-3 text-sm text-fg/75 md:max-w-3xl">
                     {project.bullets.map((bullet, index) => (
                       <li key={index} className="flex gap-2">
-                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-white/70" />
+                        <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-fg/70" />
                         <span>{bullet}</span>
                       </li>
                     ))}

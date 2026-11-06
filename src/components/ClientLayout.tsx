@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import PixelMascot from "@/components/PixelMascot";
 
 export default function ClientLayout({
   children,
@@ -11,6 +12,7 @@ export default function ClientLayout({
     <>
       <Navbar />
       {children}
+      <PixelMascot />
     </>
   );
 }

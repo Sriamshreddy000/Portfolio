@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -22,6 +23,7 @@ export default function Navbar() {
               <motion.span layoutId="navbar-indicator" className="navbar-indicator" />
             ) : null}
           </Link>
+          <ThemeToggle />
         </div>
       </nav>
     </div>
